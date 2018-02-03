@@ -12,6 +12,8 @@ namespace Insertion_Sort
         {
             bool DevelopeMode = false;
             int[] ints = new int[10];
+            int lastValue = 1;
+            int plusOneIndex = 0;
             #region Ask for 10 numbers
             if (DevelopeMode)
             {
@@ -43,9 +45,29 @@ namespace Insertion_Sort
                 }
             }
             #endregion
-            Console.ReadKey();
+            for (int currentIndex = 1; currentIndex < ints.Length; currentIndex++)
+            {
+                for (int swappedIndex = 0; swappedIndex < currentIndex; swappedIndex++)
+                {
+                    if(ints[swappedIndex] > ints[currentIndex])
+                    {
+                        throw new Exception("You Broke It, Try Again");
+                    }
+                }
+                lastValue = ints[currentIndex];
+                if (ints[currentIndex] > lastValue)
+                {
+                    
+                }
+                currentIndex++;
+                lastValue++;
+                Console.ReadKey();
+            }
         }
     }
 }
+//Random Seed #1:
+//Unsorted
 //3 2 5 8 7 5 4 10 2 7
+//Sorted
 //2 2 3 4 5 5 7 7 8 10
