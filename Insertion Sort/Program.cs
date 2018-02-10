@@ -34,36 +34,51 @@ namespace Insertion_Sort
             }
             #endregion
             #region Random
-            Random rand = new Random(1);
+            Random rand = new Random();
             if (!DevelopeMode)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    ints[i] = rand.Next(1, 11);
-
-                    Console.WriteLine(ints[i]);
+                    ints[i] = rand.Next(1, 1001);
                 }
             }
             #endregion
+            Print(ints);
             for (int currentIndex = 1; currentIndex < ints.Length; currentIndex++)
             {
                 for (int swappedIndex = 0; swappedIndex < currentIndex; swappedIndex++)
                 {
                     if(ints[swappedIndex] > ints[currentIndex])
                     {
-                        throw new Exception("You Broke It, Try Again");
+                        int temp = ints[swappedIndex];
+                        ints[swappedIndex] = ints[currentIndex];
+                        ints[currentIndex] = temp;
+                        //Swap(ints[swappedIndex], ints[currentIndex]);
                     }
                 }
-                lastValue = ints[currentIndex];
-                if (ints[currentIndex] > lastValue)
-                {
-                    
-                }
-                currentIndex++;
-                lastValue++;
-                Console.ReadKey();
+            }
+            Print(ints);
+            Console.ReadKey();
+            
+        }
+        #region Functions
+        public static void Print(int[] array)
+        {
+            Console.WriteLine("");
+            for (int i = 0; i < array.Length; i++)
+            {
+                
+                Console.WriteLine(array[i]);
             }
         }
+        public static void Swap(int first, int second)
+        {
+            int temp = first;
+            first = second;
+            second = temp;
+
+        }
+        #endregion
     }
 }
 //Random Seed #1:
